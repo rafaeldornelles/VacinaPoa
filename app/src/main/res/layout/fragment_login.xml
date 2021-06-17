@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="br.com.dbserver.lista.agendavacina.LoginFragment" />
+        <variable
+            name="viewModel"
+            type="br.com.dbserver.lista.agendavacina.viewmodel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".LoginFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_login_app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VacinaPoa"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_login_app_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bem vindo, Faça o login abaixo: "
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="@android:color/tertiary_text_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_app_title"
+            app:layout_constraintBottom_toTopOf="@id/fragment_login_email_textinput"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_bias=".4" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_login_email_textinput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_app_subtitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/fragment_login_password_textinput">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:maxLines="1"
+                android:text="@={viewModel.email}"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_login_password_textinput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Senha"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_email_textinput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/fragment_login_signin_button">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:maxLines="1"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragment_login_signin_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_password_textinput"
+            app:layout_constraintStart_toStartOf="@id/fragment_login_password_textinput"
+            app:layout_constraintEnd_toEndOf="@id/fragment_login_password_textinput"
+            app:layout_constraintBottom_toTopOf="@id/fragment_login_register_button"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> callback.signIn()}"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragment_login_register_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadastro"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_signin_button"
+            app:layout_constraintStart_toStartOf="@id/fragment_login_password_textinput"
+            app:layout_constraintEnd_toEndOf="@id/fragment_login_password_textinput"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> callback.register()}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
