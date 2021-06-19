@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:layout_height="match_parent"
+        tools:context=".ComorbidadesFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_comorbidades_subtitle"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Selecione as Comorbidades que você possui:"
+            android:textColor="@android:color/tertiary_text_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:flow_horizontalBias="0"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_comorbidades_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_comorbidade_select"
+            app:layout_constraintTop_toBottomOf="@id/fragment_comorbidades_subtitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+
+            app:layout_constraintBottom_toTopOf="@id/fragment_comorbidades_button_continuar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragment_comorbidades_button_continuar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_comorbidades_recycler_view"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

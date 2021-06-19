@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "418414463988",
+    "project_id": "vacinapoa-fb1ab",
+    "storage_bucket": "vacinapoa-fb1ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418414463988:android:919e08faf1172f7e26c7a1",
+        "android_client_info": {
+          "package_name": "br.com.dbserver.lista.agendavacina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418414463988-1545gvnfpie71pu2e1oibu890r7jkr0i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.dbserver.lista.agendavacina",
+            "certificate_hash": "a368eb743eb9702ae2906718555734dae892198a"
+          }
+        },
+        {
+          "client_id": "418414463988-97atlqnjbk8kk6o65g7brsbblmvmf13c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlCYQ_BiLWkufGjE26ya3qGj56k0n5Pr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418414463988-97atlqnjbk8kk6o65g7brsbblmvmf13c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

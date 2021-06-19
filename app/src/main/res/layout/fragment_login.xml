@@ -27,7 +27,10 @@
             android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/fragment_login_app_subtitle"
+            android:layout_marginBottom="16dp"
+            />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/fragment_login_app_subtitle"
@@ -39,11 +42,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintTop_toBottomOf="@id/fragment_login_app_title"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/fragment_login_email_textinput"
             android:layout_marginBottom="8dp"
             app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintVertical_bias=".4" />
+            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/fragment_login_email_textinput"
@@ -80,6 +83,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:maxLines="1"
+                android:text="@={viewModel.password}"
+                android:inputType="textPassword"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -89,6 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:enabled="@{viewModel.canSubmit}"
             app:layout_constraintTop_toBottomOf="@id/fragment_login_password_textinput"
             app:layout_constraintStart_toStartOf="@id/fragment_login_password_textinput"
             app:layout_constraintEnd_toEndOf="@id/fragment_login_password_textinput"
