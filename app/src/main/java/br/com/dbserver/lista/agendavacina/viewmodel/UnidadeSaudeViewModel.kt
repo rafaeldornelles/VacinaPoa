@@ -1,10 +1,10 @@
-package br.com.dbserver.lista.agendavacina.ui.home
+package br.com.dbserver.lista.agendavacina.ui.unidades_saude
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class UnidadeSaudeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"

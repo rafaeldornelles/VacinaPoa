@@ -3,7 +3,7 @@
     {
       "id": 1,
       "descricao": "Hipertensão",
-      "cid": "CID 10 - I15\t"
+      "cid": "CID 10 - I15"
     },
     {
       "id": 2,
@@ -164,12 +164,18 @@
       "idadeMin": 18,
       "grupoPrioritarioId": 9,
       "dataInicioVacinaCao": "2021-06-30"
+    },
+    {
+      "id": 16,
+      "idadeMin": 18,
+      "grupoPrioritarioId": 1,
+      "dataInicioVacinaCao": "2021-07-30"
     }
   ],
   "unidadesSaude": [
     {
       "id": 1,
-      "nome": "Unidade de Saúde Modelo\n",
+      "nome": "Unidade de Saúde Modelo",
       "endereco": "Av. Jerônimo de Ornelas, 55 - Santana, Porto Alegre - RS, 90040-340",
       "horarioAbertura": "08:00",
       "horarioFechamento": "17:00",
@@ -254,6 +260,15 @@
       "id": "eY0Q0sxQDwfA4AF1KIC8uGMTnLK2",
       "nome": "rafael",
       "senha": ""
+    },
+    {
+      "cpf": "03112100077",
+      "dataNascimento": "2003-06-19",
+      "email": "a@a.com",
+      "id": "K0nhhfOfC7QETvQsOg5p1iupoDu2",
+      "nome": "usuario a",
+      "senha": ""
     }
-  ]
+  ],
+  "usuarioscomorbidades": []
 }
