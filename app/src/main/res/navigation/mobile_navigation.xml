@@ -3,23 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/unidade_saude">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="br.com.dbserver.lista.agendavacina.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/unidade_saude"
+        android:name="br.com.dbserver.lista.agendavacina.ui.unidades_saude.UnidadeSaudeFragment"
+        android:label="title_unidades_saude"
+        tools:layout="@layout/fragment_unidades_saude" >
+        <action
+            android:id="@+id/action_unidade_saude_to_unidadeSaudeDetalheFragment"
+            app:destination="@+id/unidadeSaudeDetalheFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="br.com.dbserver.lista.agendavacina.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="br.com.dbserver.lista.agendavacina.ui.agendamento.AgendamentoFragment"
+        android:label="@string/title_agendamento"
+        tools:layout="@layout/fragment_agendamento" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_comorbidadesFragment2"
+            app:destination="@id/comorbidadesFragment2" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="br.com.dbserver.lista.agendavacina.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_cadastro"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/unidadeSaudeDetalheFragment"
+        android:name="br.com.dbserver.lista.agendavacina.UnidadeSaudeDetalheFragment"
+        android:label="Unidade Saúde"
+        tools:layout="@layout/fragment_unidade_saude_detalhe" />
+    <fragment
+        android:id="@+id/comorbidadesFragment2"
+        android:name="br.com.dbserver.lista.agendavacina.ComorbidadesFragment"
+        android:label="Comorbidades"
+        tools:layout="@layout/fragment_comorbidades">
+        <action
+            android:id="@+id/action_comorbidadesFragment2_to_grupoPrioritarioFragment"
+            app:destination="@id/grupoPrioritarioFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/grupoPrioritarioFragment"
+        android:name="br.com.dbserver.lista.agendavacina.GrupoPrioritarioFragment"
+        android:label="Grupos Prioritários"
+        tools:layout="@layout/fragment_grupo_prioritario">
+        <action
+            android:id="@+id/action_grupoPrioritarioFragment_to_grupoVacinacaoFragment"
+            app:destination="@id/grupoVacinacaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/grupoVacinacaoFragment"
+        android:name="br.com.dbserver.lista.agendavacina.GrupoVacinacaoFragment"
+        android:label="Grupo Vacinação"
+        tools:layout="@layout/fragment_grupo_vacinacao" />
 </navigation>

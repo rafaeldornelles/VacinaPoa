@@ -2,6 +2,7 @@ package br.com.dbserver.lista.agendavacina.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 import java.time.LocalTime
 
 @Entity
@@ -16,4 +17,4 @@ class UnidadeSaude (
     val linkImagem: String,
     val capacidadeVacinacaoHora: Int,
     val isDriveThru: Boolean
-)
+): Serializable

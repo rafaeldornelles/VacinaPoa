@@ -1,8 +1,6 @@
-package br.com.dbserver.lista.agendavacina.Repository
+package br.com.dbserver.lista.agendavacina.repository
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.dbserver.lista.agendavacina.VacinaPoaApplication
@@ -33,7 +31,7 @@ class ComorbidadeRepository(){
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 comorbidades.value = it
-                comorbidadeDao.insert(*it.toTypedArray())
+                comorbidadeDao.insert(*it.toTypedArray()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe()
             }, {
                 Log.e("DEBUG", "Connection Error: ${it.message}")
             }))

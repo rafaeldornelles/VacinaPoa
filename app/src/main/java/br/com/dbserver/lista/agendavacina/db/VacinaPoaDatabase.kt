@@ -10,7 +10,7 @@ import br.com.dbserver.lista.agendavacina.model.*
 
 @Database(entities = [Agendamento::class, Vacina::class, Comorbidade::class, GrupoPrioritario::class, GrupoVacinacao::class,
                     UnidadeSaude::class, Usuario::class, Vacinacao::class, UsuarioComorbidade::class],
-                    version = 2, exportSchema = false)
+                    version = 5, exportSchema = false)
 @TypeConverters(DateConverters::class)
 abstract class VacinaPoaDatabase: RoomDatabase() {
     companion object {
@@ -32,6 +32,7 @@ abstract class VacinaPoaDatabase: RoomDatabase() {
     abstract fun grupoVacinacaoDao(): GrupoVacinacaoDao
     abstract fun unidadeSaudeDao(): UnidadeSaudeDao
     abstract fun usuarioDao(): UsuarioDao
+    abstract fun usuarioComorbidadeDao(): UsuarioComorbidadeDao
     abstract fun vacinacaoDao(): VacinacaoDao
     abstract fun vacinaDao(): VacinaDao
 }

@@ -1,6 +1,7 @@
 package br.com.dbserver.lista.agendavacina
 
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -43,10 +44,17 @@ class LoginFragment : Fragment() {
     }
 
     fun signIn(){
-        Log.d("AAAA", loginViewModel.email.value.toString())
-        Log.d("AAAA", "signing in....")
-        loginViewModel.email.value = "rafafd@hotmail.com"
-        Log.d("AAAA", loginViewModel.email.value.toString())
+        auth.signInWithEmailAndPassword(loginViewModel.email.value?:"", loginViewModel.password.value?:"")
+            .addOnSuccessListener {
+                checkUser()
+            }.addOnFailureListener{
+                AlertDialog.Builder(context)
+                    .setTitle("Erro ao fazer login")
+                    .setMessage("Usuário ou senha inválidos")
+                    .setPositiveButton("Ok", null)
+                    .create()
+                    .show()
+            }
     }
 
     fun register(){

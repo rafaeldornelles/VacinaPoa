@@ -5,16 +5,21 @@ package br.com.dbserver.lista.retrofitcrudprodutos.retrofit
 import br.com.dbserver.lista.agendavacina.model.Usuario
 import br.com.dbserver.lista.agendavacina.retrofit.services.*
 import br.com.dbserver.lista.agendavacina.utils.LocalDateAdapter
+import br.com.dbserver.lista.agendavacina.utils.LocalTimeAdapter
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.time.LocalDate
+import java.time.LocalTime
 
 class AppRetrofit {
     companion object{
         private const val BASE_URL = "http://10.0.2.2:3000"
-        val gson = GsonBuilder().registerTypeAdapter(LocalDate::class.java, LocalDateAdapter()).create()
+        val gson = GsonBuilder()
+            .registerTypeAdapter(LocalDate::class.java, LocalDateAdapter())
+            .registerTypeAdapter(LocalTime::class.java, LocalTimeAdapter())
+            .create()
         val retrofit : Retrofit by lazy {
             Retrofit.Builder()
                 .baseUrl(BASE_URL)

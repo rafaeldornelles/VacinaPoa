@@ -5,6 +5,8 @@ import androidx.room.ForeignKey
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import java.time.LocalDate
+import java.time.Year
+import java.time.temporal.ChronoUnit
 
 @Entity
 open class Usuario (
@@ -22,6 +24,10 @@ open class Usuario (
     @ForeignKey(entity = GrupoVacinacao::class, childColumns = ["idGrupoVacinacao"], parentColumns = ["id"])
     var idGrupoVacinacao: Int?
 ){
+
+    fun getIdade(): Int{
+        return ChronoUnit.YEARS.between(dataNascimento, LocalDate.now()).toInt()
+    }
 
     constructor(id: String, nome: String, email: String, cpf: String, dataNascimento: LocalDate, identificacaoFuncional: String?, idUnidadeSaude: Int?, idGrupoVacinacao: Int?) :this(id, nome, "", email, cpf, dataNascimento, identificacaoFuncional, idUnidadeSaude, idGrupoVacinacao)
     fun getTipoUsuario():TipoUsuario = if (identificacaoFuncional == null && idUnidadeSaude == null) TipoUsuario.PUBLICO_GERAL else TipoUsuario.PROFISSIONAL_SAUDE

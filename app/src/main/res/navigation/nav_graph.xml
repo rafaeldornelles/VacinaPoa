@@ -17,32 +17,11 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/loginFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_publicoGeralFragment"
-            app:destination="@id/publicoGeralFragment" />
     </fragment>
     <fragment
         android:id="@+id/cadastroFragment"
         android:name="br.com.dbserver.lista.agendavacina.CadastroFragment"
         android:label="Cadastro"
-        tools:layout="@layout/fragment_cadastro" >
-        <action
-            android:id="@+id/action_cadastroFragment_to_comorbidadesFragment"
-            app:destination="@id/comorbidadesFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/publicoGeralFragment"
-        android:name="br.com.dbserver.lista.agendavacina.PublicoGeralFragment"
-        android:label="fragment_publico_geral"
-        tools:layout="@layout/fragment_publico_geral" />
-    <fragment
-        android:id="@+id/comorbidadesFragment"
-        android:name="br.com.dbserver.lista.agendavacina.ComorbidadesFragment"
-        android:label="fragment_comorbidades"
-        tools:layout="@layout/fragment_comorbidades" />
-    <fragment
-        android:id="@+id/grupoPrioritarioFragment"
-        android:name="br.com.dbserver.lista.agendavacina.GrupoPrioritarioFragment"
-        android:label="fragment_grupo_prioritario"
-        tools:layout="@layout/fragment_grupo_prioritario" />
+        tools:layout="@layout/fragment_cadastro" />
+
 </navigation>

@@ -1,13 +1,11 @@
-package br.com.dbserver.lista.agendavacina.ui.unidades_saude
+package br.com.dbserver.lista.agendavacina.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.dbserver.lista.agendavacina.repository.UnidadeSaudeRepository
 
 class UnidadeSaudeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    private val unidadeSaudeRepository = UnidadeSaudeRepository()
+
+    fun getUnidadesSaude() = unidadeSaudeRepository.getUnidadeSaude()
 }

@@ -10,7 +10,7 @@ interface UsuarioService {
     fun listar(): Observable<List<Vacina>>
 
     @GET("usuarios/{id}")
-    fun buscarPorId(@Path("id") id: Int) : Observable<Usuario>
+    fun buscarPorId(@Path("id") id: String) : Observable<Usuario>
 
     @POST("usuarios")
     fun inserir(@Body usuario: Usuario) : Observable<Usuario>

@@ -1,19 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="br.com.dbserver.lista.agendavacina.ui.agendamento.AgendamentoViewModel" />
+
+        <variable
+            name="handler"
+            type="br.com.dbserver.lista.agendavacina.ui.agendamento.AgendamentoFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:padding="16dp"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_agendamento_subtitle"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{`Bem vindo, ` + viewModel.usuario.usuario.nome}"
+            tools:text="Bem vindo, Usuário"
+            android:textColor="@android:color/tertiary_text_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="@{viewModel.usuario.agendamentos.size() == 0? View.VISIBLE: View.GONE}"
+            >
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/fragment_agendamento_no_agendamento_mgs"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Não foram encontrados agendamentos associados à sua conta. Agendar?"
+                android:textColor="@android:color/tertiary_text_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_agendamento_button_agendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agendar"
+                app:layout_constraintTop_toBottomOf="@id/fragment_agendamento_no_agendamento_mgs"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Widget.MaterialComponents.Button"
+                android:onClick="@{()-> handler.onAgendarClick()}"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,13 +1,14 @@
-package br.com.dbserver.lista.agendavacina.ui.dashboard
+package br.com.dbserver.lista.agendavacina.ui.agendamento
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.dbserver.lista.agendavacina.repository.UsuarioRepository
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
-class DashboardViewModel : ViewModel() {
+class AgendamentoViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    private val usuarioRepository = UsuarioRepository()
+    val usuario = Firebase.auth.currentUser?.uid?.let {
+        usuarioRepository.findUsuarioByIdBanco(it)
     }
-    val text: LiveData<String> = _text
 }

@@ -1,26 +1,16 @@
 package br.com.dbserver.lista.agendavacina.viewmodel
 
-import android.content.ContextWrapper
 import android.util.Log
-import android.util.Patterns
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.BindingAdapter
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.dbserver.lista.agendavacina.Repository.UsuarioRepository
-import br.com.dbserver.lista.agendavacina.VacinaPoaApplication
+import br.com.dbserver.lista.agendavacina.repository.UsuarioRepository
 import br.com.dbserver.lista.agendavacina.model.Usuario
 import br.com.dbserver.lista.agendavacina.utils.Validators
-import com.google.android.gms.dynamic.SupportFragmentWrapper
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.Completable
 import java.time.*
-import java.time.format.DateTimeFormatter
 
 class CadastroViewModel: ViewModel() {
     val email: MutableLiveData<String> = MutableLiveData("")
